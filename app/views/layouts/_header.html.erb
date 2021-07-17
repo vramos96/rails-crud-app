@@ -7,9 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <%= link_to root_path, class: 'nav-link' do %>
-                    Inicio
-                <% end %>
+                <%= link_to "Inicio", root_path, class: 'nav-link'%>
             </li>
             <%if persona_signed_in?%>
                 <li class="nav-item">

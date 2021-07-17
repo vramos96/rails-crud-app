@@ -3,6 +3,7 @@ class Persona < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :sucursals
   validates :nombre, presence: true
   validates :apellido_paterno, presence: true
   validates :apellido_materno, presence: true

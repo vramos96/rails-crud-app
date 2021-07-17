@@ -1,0 +1,55 @@
+<div class="main-card mb-3 card">
+  <div class="card-header">
+    <h3 class="card-title">Sucursales</h3>
+  </div>
+  <div class="card-body">
+    <% if @sucursals.count > 0%>
+          <table id="sucursals_table" class="table table-stripped table-hover">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Número de empleados</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @sucursals.each do |sucursal| %>
+                <tr>
+                  <td>
+                    <%= sucursal.nombre %>
+                  </td>
+                  <td>
+                    <%= 0 %>
+                  </td>
+                  <td>
+                    <%= link_to 'Ver', sucursal %>
+                    <%= link_to 'Editar', edit_sucursal_path(sucursal) %>
+                    <%= link_to 'Registrar empleado', "#" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+      <script>
+        $(document).ready(function() {
+          $('#sucursals_table').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+            },
+            "columnDefs": [{
+              targets: -1,
+              orderable: false
+            }],
+            "order": [0, 'desc']
+          });
+        });
+      </script>
+    <% else %>
+      <h4>
+        No existen sucursales registradas
+      </h4>
+    <% end %>
+ </div>
+</div>
+<br>
+<%= link_to "Registrar sucursal", new_sucursal_path, class: 'btn btn-primary float-end' %> 

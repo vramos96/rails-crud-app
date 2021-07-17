@@ -6,15 +6,17 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css' %>
+    <%= javascript_include_tag 'https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js' %>
   </head>
-
   <body>
     <%= render 'layouts/header'%>
     <main role="main">
-      <%= render 'layouts/alerts'%>
-      <%= yield %>
+      <div class="container">
+        <%= render 'layouts/alerts'%>
+        <%= yield %>
+      </div>
       <%= render 'layouts/footer'%>
     </main>
-    
   </body>
 </html>

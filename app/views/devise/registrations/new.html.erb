@@ -4,6 +4,21 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :nombre, "Nombre(s)" %><br />
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :apellido_materno, "Apellido materno" %><br />
+    <%= f.text_field :apellido_materno %>
+  </div>
+
+  <div class="field">
+    <%= f.label :apellido_paterno, "Apellido paterno" %><br />
+    <%= f.text_field :apellido_paterno %>
+  </div>
+
+  <div class="field">
     <%= f.label :email, "Correo electrónico" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -38,6 +53,15 @@
 <script>
   $("#new_persona").validate({
     rules: {
+      "persona[nombre]" : {
+        required: true
+      },
+      "persona[apellido_materno]" : {
+        required: true
+      },
+      "persona[apellido_paterno]" : {
+        required: true
+      },
       "persona[email]": {
         required: true,
         email: true
@@ -58,6 +82,29 @@
       "persona[nombre_empresa]" : {
         required: true,
       }
+    },
+    submitHandler: function(form) {
+      var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
+       $.ajax({
+        type: 'POST',
+        url: '<%=verificar_empresa_path%>',
+        data: {
+          authenticity_token: AUTH_TOKEN,
+          nombre_empresa: $('#persona_nombre_empresa').val(),
+        },
+        success: function(data){
+          console.log(data);
+          if(data){
+            form.submit();
+          }else{
+            alert('Ya existe una empresa registrada con ese correo electrónico o rfc');
+          }
+        },
+        error: function(xhr){
+          console.log(xhr.responseText);
+        },
+      });
+      return false;
     }
   });
 </script>

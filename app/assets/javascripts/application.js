@@ -15,5 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 //= require jquery.validate
 //= require jquery.validate.localization/messages_es

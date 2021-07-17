@@ -7,5 +7,5 @@ class Persona < ApplicationRecord
   validates :apellido_paterno, presence: true
   validates :apellido_materno, presence: true
   validates :rfc, presence: true
-  validates :nombre_empresa, presence: true
+  validates :nombre_empresa, presence: true, uniqueness: {scope: :rfc}
 end

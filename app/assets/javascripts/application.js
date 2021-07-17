@@ -14,3 +14,6 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+//= require jquery.validate
+//= require jquery.validate.localization/messages_es

@@ -4,12 +4,17 @@
     <title>Documentos Digitales de México</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header'%>
+    <main role="main">
+      <%= render 'layouts/alerts'%>
+      <%= yield %>
+      <%= render 'layouts/footer'%>
+    </main>
+    
   </body>
 </html>

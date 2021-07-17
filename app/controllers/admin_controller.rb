@@ -1,8 +1,10 @@
 class AdminController < ApplicationController
-    skip_before_action :authenticate_persona!, only: [:verificarEmpresa]
+    skip_before_action :authenticate_persona!, only: [:verificarEmpresa, :index]
     
     def index
-
+        if !persona_signed_in?
+            redirect_to new_persona_session_path
+        end
     end
 
     #Regresa true si es posible crear usuario con nombre de empresa única

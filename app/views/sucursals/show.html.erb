@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Nombre:</strong>
   <%= @sucursal.nombre %>
@@ -39,11 +37,12 @@
   <strong>Pais:</strong>
   <%= @sucursal.pais %>
 </p>
-
-<p>
-  <strong>Persona:</strong>
-  <%= @sucursal.persona %>
-</p>
+<% if @sucursal.persona.present? %>
+  <p>
+    <strong>Persona:</strong>
+    <%= @sucursal.persona.to_text %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_sucursal_path(@sucursal) %> |
 <%= link_to 'Back', sucursals_path %>

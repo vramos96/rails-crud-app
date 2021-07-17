@@ -22,9 +22,9 @@
                     <%= 0 %>
                   </td>
                   <td>
-                    <%= link_to 'Ver', sucursal %>
-                    <%= link_to 'Editar', edit_sucursal_path(sucursal) %>
-                    <%= link_to 'Registrar empleado', "#" %>
+                    <%= link_to 'Ver', sucursal, class: 'btn btn-default' %>
+                    <%= link_to 'Editar', edit_sucursal_path(sucursal), class: 'btn btn-secondary'  %>
+                    <%= link_to 'Registrar empleado', "#", class: 'btn btn-primary' %>
                   </td>
                 </tr>
               <% end %>

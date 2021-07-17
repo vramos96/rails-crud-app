@@ -13,8 +13,13 @@
  */
  @import "bootstrap";
  @import "carousel";
+ @import "select2";
 
  .error {
      color: red;
      border-color: red;
+ }
+
+ .btn-default{
+    border-color: black;
  }

@@ -1,5 +1,11 @@
-<h1>New Sucursal</h1>
+<div class="main-card mb-3 card">
+    <div class="card-header">
+        <h3 class="card-title">Registrar sucursal</h3>
+    </div>
+    <div class="card-body">
+        <%= render 'form', sucursal: @sucursal %>
+    </div>
+</div>
 
-<%= render 'form', sucursal: @sucursal %>
-
-<%= link_to 'Back', sucursals_path %>
+<br />
+<%= link_to "Regresar", sucursals_path, class: 'btn btn-default float-end' %> 

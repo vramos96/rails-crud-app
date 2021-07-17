@@ -17,10 +17,12 @@ class SucursalsController < ApplicationController
   # GET /sucursals/new
   def new
     @sucursal = Sucursal.new
+    @persona_id = current_persona.id
   end
 
   # GET /sucursals/1/edit
   def edit
+    @persona_id = @sucursal.persona_id
   end
 
   # POST /sucursals or /sucursals.json
@@ -29,7 +31,7 @@ class SucursalsController < ApplicationController
 
     respond_to do |format|
       if @sucursal.save
-        format.html { redirect_to @sucursal, notice: "Sucursal was successfully created." }
+        format.html { redirect_to @sucursal, notice: "Sucursal creada exitosamente" }
         format.json { render :show, status: :created, location: @sucursal }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +44,7 @@ class SucursalsController < ApplicationController
   def update
     respond_to do |format|
       if @sucursal.update(sucursal_params)
-        format.html { redirect_to @sucursal, notice: "Sucursal was successfully updated." }
+        format.html { redirect_to @sucursal, notice: "Sucursal actualizada exitosamente" }
         format.json { render :show, status: :ok, location: @sucursal }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +57,7 @@ class SucursalsController < ApplicationController
   def destroy
     @sucursal.destroy
     respond_to do |format|
-      format.html { redirect_to sucursals_url, notice: "Sucursal was successfully destroyed." }
+      format.html { redirect_to sucursals_url, notice: "Sucursal eliminada exitosamente" }
       format.json { head :no_content }
     end
   end

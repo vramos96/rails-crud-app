@@ -9,4 +9,9 @@ class Persona < ApplicationRecord
   validates :apellido_materno, presence: true
   validates :rfc, presence: true
   validates :nombre_empresa, presence: true, uniqueness: {scope: :rfc}
+
+  def to_text
+    return self.nombre + ' ' + self.apellido_paterno + ' ' + self.apellido_materno
+  end
+
 end

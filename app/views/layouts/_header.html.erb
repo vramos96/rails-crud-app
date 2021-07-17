@@ -1,24 +1,24 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Carousel</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <%= link_to "Inicio", root_path, class: 'nav-link'%>
-            </li>
-            <%if persona_signed_in?%>
-                <li class="nav-item">
-                    <%= link_to "Link", "#", class: 'nav-link' %>
+        <a class="navbar-brand" href="#">Carousel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <%= link_to "Inicio", root_path, class: 'nav-link'%>
                 </li>
-                <li class="nav-item mt-2 mt-md-0 pull-right">
-                    <%= link_to "Cerrar sesión", destroy_persona_session_path, 
-                    class: 'nav-link', method: 'DELETE' %>
-                </li>
-            <% end %>
-        </ul>
-    </div>
+                <%if persona_signed_in?%>
+                    <li class="nav-item">
+                        <%= link_to "Sucursales", sucursals_path, class: 'nav-link' %>
+                    </li>
+                    <li class="nav-item mt-2 mt-md-0 float-end">
+                        <%= link_to "Cerrar sesión", destroy_persona_session_path, 
+                        class: 'nav-link', method: 'DELETE' %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
     </nav>
 </header>

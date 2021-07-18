@@ -38,7 +38,7 @@ class EmpleadosController < ApplicationController
   def update
     respond_to do |format|
       if @empleado.update(empleado_params)
-        format.html { redirect_to @empleado, notice: "Empleado actualizado exitosamente" }
+        format.html { redirect_to root_path, notice: "Empleado actualizado exitosamente" }
         format.json { render :show, status: :ok, location: @empleado }
       else
         format.html { render :edit, status: :unprocessable_entity }

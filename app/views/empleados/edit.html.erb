@@ -1,6 +1,8 @@
-<h1>Editing Empleado</h1>
-
-<%= render 'form', empleado: @empleado %>
-
-<%= link_to 'Show', @empleado %> |
-<%= link_to 'Back', empleados_path %>
+<div class="main-card mb-3 card">
+    <div class="card-header">
+        <h3 class="card-title">Editar Empleado</h3>
+    </div>
+    <div class="card-body">
+        <%= render 'form', empleado: @empleado, button_name: "Editar Empleado" %>
+    </div>
+</div>

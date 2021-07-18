@@ -44,7 +44,7 @@ class SucursalsController < ApplicationController
   def update
     respond_to do |format|
       if @sucursal.update(sucursal_params)
-        format.html { redirect_to @sucursal, notice: "Sucursal actualizada exitosamente" }
+        format.html { redirect_to root_path, notice: "Sucursal actualizada exitosamente" }
         format.json { render :show, status: :ok, location: @sucursal }
       else
         format.html { render :edit, status: :unprocessable_entity }

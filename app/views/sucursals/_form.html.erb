@@ -57,7 +57,7 @@
 
 <% end %>
 
-<script>
+<script defer>
   $("#sucursal_form").validate({
     rules : {
       "sucursal[nombre]" : {
@@ -88,6 +88,7 @@
       "sucursal[pais]" : {
         required: true,
       },
-    }
+    },
+    submitHandler: handleSubmit
   });
 </script>

@@ -34,12 +34,12 @@
   </div>
 
   <br />
-  <%= link_to "Regresar", empleados_path, class: 'btn btn-default float-start' %> 
+  <%= link_to "Regresar", sucursals_path, class: 'btn btn-default float-start' %> 
   <%= form.submit button_name, class: 'btn btn-primary float-end' %>
 <% end %>
 
 <script>
-  $("#sucursal_id").select2({
+$("#sucursal_id").select2({
       language: "es"
   });
   $("#empleado_form").validate({

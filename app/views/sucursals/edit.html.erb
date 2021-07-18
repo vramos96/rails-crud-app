@@ -1,6 +1,8 @@
-<h1>Editing Sucursal</h1>
-
-<%= render 'form', sucursal: @sucursal %>
-
-<%= link_to 'Show', @sucursal %> |
-<%= link_to 'Back', sucursals_path %>
+<div class="main-card mb-3 card">
+    <div class="card-header">
+        <h3 class="card-title">Editar sucursal</h3>
+    </div>
+    <div class="card-body">
+        <%= render 'form', sucursal: @sucursal, button_name: "Editar Sucursal" %>
+    </div>
+</div>

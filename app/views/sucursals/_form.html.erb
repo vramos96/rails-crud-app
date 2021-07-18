@@ -52,7 +52,8 @@
 
   <%= form.hidden_field :persona_id, value: @persona_id %>
   <br />
-  <%= form.submit "Crear sucursal", class: 'btn btn-primary float-end' %>
+  <%= link_to "Regresar", sucursals_path, class: 'btn btn-default float-start' %> 
+  <%= form.submit button_name, class: 'btn btn-primary float-end' %>
 
 <% end %>
 

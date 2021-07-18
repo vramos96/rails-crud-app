@@ -1,0 +1,61 @@
+<%= form_with(model: empleado, local: true, id: 'empleado_form') do |form| %>
+  <% if empleado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(empleado.errors.count, "error") %> prohibited this empleado from being saved:</h2>
+
+      <ul>
+      <% empleado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :sucursal_id, "Sucursal", class: 'form-label' %>
+    <%= select_tag :sucursal_id, content_tag(:option, 'Seleccione una de las siguientes sucursales...',
+    value: "") + options_from_collection_for_select(Sucursal.all, :id, :nombre, 
+    selected: @empleado.sucursal_id), class: 'form-control', name: "empleado[sucursal_id]"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre, "Nombre", class: 'form-label' %>
+    <%= form.text_field :nombre, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rfc, "RFC", class: 'form-label' %>
+    <%= form.text_field :rfc, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre_puesto, "Nombre del puesto", class: 'form-label' %>
+    <%= form.text_field :nombre_puesto, class: 'form-control' %>
+  </div>
+
+  <br />
+  <%= link_to "Regresar", empleados_path, class: 'btn btn-default float-start' %> 
+  <%= form.submit button_name, class: 'btn btn-primary float-end' %>
+<% end %>
+
+<script>
+  $("#sucursal_id").select2({
+      language: "es"
+  });
+  $("#empleado_form").validate({
+    rules : {
+      "empleado[sucursal_id]" : {
+        required: true,
+      },
+      "empleado[nombre]" : {
+        required: true,
+      },
+      "empleado[rfc]" : {
+        required: true,
+      },
+      "empleado[nombre_puesto]" : {
+        required: true,
+      },
+    }
+  });
+</script>

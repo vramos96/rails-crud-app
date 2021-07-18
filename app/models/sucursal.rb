@@ -1,5 +1,6 @@
 class Sucursal < ApplicationRecord
   belongs_to :persona
+  has_many :empleados
   validates :nombre, presence: true
   validates :calle, presence: true
   validates :colonia, presence: true

@@ -21,7 +21,7 @@ $ mysql --version
 ```
 mysql  Ver 14.14 Distrib 5.7.28, for Linux (x86_64) using  EditLine wrapper
 
-Para esta última es necesario crear un usuario con el username mostrado en su terminal y agregar una variable de entorno con el nombre 'MYSQL_DEFAULT_PASSWORD' con el valor de la contraseña del user.
+Nota: En MySQL es necesario crear un usuario con el username mostrado en su terminal, otorgar los permisos correspondientes y agregar una variable de entorno con el nombre 'MYSQL_DEFAULT_PASSWORD' con el valor de la contraseña del user.
 
 ## Gemas agregadas en este proyecto
 

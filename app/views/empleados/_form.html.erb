@@ -29,7 +29,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :nombre_puesto, "Nombre del puesto", class: 'form-label' %>
+    <%= form.label :nombre_puesto, "Nombre del puesto (opcional)", class: 'form-label' %>
     <%= form.text_field :nombre_puesto, class: 'form-control' %>
   </div>
 
@@ -52,10 +52,7 @@
       },
       "empleado[rfc]" : {
         required: true,
-      },
-      "empleado[nombre_puesto]" : {
-        required: true,
-      },
+      }
     }
   });
 </script>

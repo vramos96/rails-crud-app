@@ -1,0 +1,55 @@
+<div class="main-card mb-3 card">
+  <div class="card-header">
+    <h3 class="card-title">Empleados</h3>
+  </div>
+  <div class="card-body">
+    <table id="empleados_table" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>RFC</th>
+                <th>Nombre del puesto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @sucursal.empleados.each do |empleado| %>
+            <tr>
+                <td><%= empleado.nombre %></td>
+                <td><%= empleado.rfc %></td>
+                <td>
+                    <% if empleado.nombre_puesto.present? %>
+                        <%= empleado.nombre_puesto %>
+                    <% else %>
+                        No asignado
+                    <% end %>
+                </td>
+                <td>
+
+                    <%= link_to 'Editar', edit_empleado_path(empleado), class: 'btn btn-secondary'  %>
+                    <!--
+                    <%= link_to 'Show', empleado %>
+                    <%= link_to 'Destroy', empleado, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    -->
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#empleados_table').DataTable({
+    "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+    },
+    "columnDefs": [{
+        targets: -1,
+        orderable: false
+    }],
+    "order": [0, 'desc']
+    });
+});
+</script>

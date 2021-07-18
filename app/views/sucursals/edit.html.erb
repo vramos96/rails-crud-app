@@ -6,3 +6,7 @@
         <%= render 'form', sucursal: @sucursal, button_name: "Editar Sucursal" %>
     </div>
 </div>
+
+<% if @sucursal.empleados.count > 0%>
+    <%= render 'empleados_table' %>
+<% end %>

@@ -6,3 +6,9 @@
         <%= render 'form', empleado: @empleado, button_name: "Editar Empleado" %>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#empleado_rfc').prop('disabled', true);
+    });
+</script>

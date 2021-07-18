@@ -1,0 +1,94 @@
+<%= form_with(model: sucursal, local: true, id: 'sucursal_form') do |form| %>
+  <% if sucursal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sucursal.errors.count, "error") %> prohibited this sucursal from being saved:</h2>
+
+      <ul>
+      <% sucursal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :nombre, "Nombre", class: 'form-label' %>
+    <%= form.text_field :nombre, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :calle, "Calle", class: 'form-label' %>
+    <%= form.text_field :calle, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :colonia, "Colonia", class: 'form-label' %>
+    <%= form.text_field :colonia, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_exterior, "Núm. exterior", class: 'form-label' %>
+    <%= form.text_field :num_exterior, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_interior, "Núm. interior (opcional)", class: 'form-label' %>
+    <%= form.text_field :num_interior, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :codigo_postal, "Código postal", class: 'form-label' %>
+    <%= form.text_field :codigo_postal, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ciudad, "Ciudad", class: 'form-label' %>
+    <%= form.text_field :ciudad, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pais, "País", class: 'form-label' %>
+    <%= form.text_field :pais, class: 'form-control' %>
+  </div>
+
+  <%= form.hidden_field :persona_id, value: @persona_id %>
+  <br />
+  <%= link_to "Regresar", sucursals_path, class: 'btn btn-default float-start' %> 
+  <%= form.submit button_name, class: 'btn btn-primary float-end' %>
+
+<% end %>
+
+<script defer>
+  $("#sucursal_form").validate({
+    rules : {
+      "sucursal[nombre]" : {
+        required: true,
+      },
+      "sucursal[calle]" : {
+        required: true,
+      },
+      "sucursal[colonia]" : {
+        required: true
+      },
+      "sucursal[num_exterior]" : {
+        required: true,
+        number: true
+      },
+      "sucursal[num_interior]" : {
+        number: true
+      },
+      "sucursal[codigo_postal]" : {
+        required: true,
+        minlength: 5,
+        maxlength: 5,
+        number: true
+      },
+      "sucursal[ciudad]" : {
+        required: true,
+      },
+      "sucursal[pais]" : {
+        required: true,
+      },
+    },
+    submitHandler: handleSubmit
+  });
+</script>

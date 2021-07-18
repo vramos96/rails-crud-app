@@ -10,6 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_07_17_235923) do
 
+  create_table "empleados", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nombre"
+    t.string "rfc"
+    t.string "nombre_puesto"
+    t.bigint "sucursal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sucursal_id"], name: "index_empleados_on_sucursal_id"
+  end
+
+  create_table "personas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "nombre"
+    t.string "apellido_paterno"
+    t.string "apellido_materno"
+    t.string "rfc"
+    t.string "nombre_empresa"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_personas_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_personas_on_reset_password_token", unique: true
+  end
+
+  create_table "sucursals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nombre"
+    t.string "calle"
+    t.string "colonia"
+    t.string "num_exterior"
+    t.string "num_interior"
+    t.string "codigo_postal"
+    t.string "ciudad"
+    t.string "pais"
+    t.bigint "persona_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["persona_id"], name: "index_sucursals_on_persona_id"
+  end
+
+  add_foreign_key "empleados", "sucursals"
+  add_foreign_key "sucursals", "personas"
 end

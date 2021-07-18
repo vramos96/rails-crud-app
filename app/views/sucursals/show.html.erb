@@ -1,0 +1,49 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @sucursal.nombre %>
+</p>
+
+<p>
+  <strong>Calle:</strong>
+  <%= @sucursal.calle %>
+</p>
+
+<p>
+  <strong>Colonia:</strong>
+  <%= @sucursal.colonia %>
+</p>
+
+<p>
+  <strong>Num exterior:</strong>
+  <%= @sucursal.num_exterior %>
+</p>
+
+<p>
+  <strong>Num interior:</strong>
+  <%= @sucursal.num_interior %>
+</p>
+
+<p>
+  <strong>Codigo postal:</strong>
+  <%= @sucursal.codigo_postal %>
+</p>
+
+<p>
+  <strong>Ciudad:</strong>
+  <%= @sucursal.ciudad %>
+</p>
+
+<p>
+  <strong>Pais:</strong>
+  <%= @sucursal.pais %>
+</p>
+
+<% if @sucursal.persona.present? %>
+  <p>
+    <strong>Persona:</strong>
+    <%= @sucursal.persona.to_text %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_sucursal_path(@sucursal) %> |
+<%= link_to 'Back', sucursals_path %>

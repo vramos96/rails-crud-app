@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  rfc: MyString
+  nombre_puesto: MyString
+  sucursal: one
+
+two:
+  nombre: MyString
+  rfc: MyString
+  nombre_puesto: MyString
+  sucursal: two

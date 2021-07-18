@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsCrudApp</title>
+    <title>Documentos Digitales de México</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="turbolinks-cache-control" content="no-cache">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css' %>
+    <%= javascript_include_tag 'https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js' %>
   </head>
-
   <body>
-    <%= yield %>
+    <%= render 'layouts/header'%>
+    <main role="main">
+      <div class="container">
+        <%= render 'layouts/alerts'%>
+        <%= yield %>
+      </div>
+      <%= render 'layouts/footer'%>
+    </main>
   </body>
 </html>

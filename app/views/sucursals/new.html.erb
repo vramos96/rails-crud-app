@@ -1,0 +1,39 @@
+<script>
+    function handleSubmit(form){
+        var authToken = $('meta[name=csrf-token]').attr('content');
+        var nombreSucursal = $('#sucursal_nombre').val();
+        $.ajax({
+            type: 'POST',
+            url: '<%=verificar_sucursal_path%>',
+            data: {
+            authenticity_token: authToken,
+            nombre_sucursal: nombreSucursal
+            },
+            success: function(data){
+            console.log(data);
+            if(data != null){
+                if(data){
+                form.submit();
+                }else{
+                alert('Ya existe una sucursal registrada con el nombre proporcionado');
+                }
+            }else{
+                alert('Por favor proporcione un nombre de sucursal válido');
+            }
+            },
+            error: function(xhr){
+            console.log(xhr.responseText);
+            },
+        });
+        return false;
+    }
+</script>
+
+<div class="main-card mb-3 card">
+    <div class="card-header">
+        <h3 class="card-title">Registrar sucursal</h3>
+    </div>
+    <div class="card-body">
+        <%= render 'form', sucursal: @sucursal, button_name: "Registrar Sucursal" %>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="main-card mb-3 card">
+    <div class="card-header">
+        <h3 class="card-title">Editar Empleado</h3>
+    </div>
+    <div class="card-body">
+        <%= render 'form', empleado: @empleado, button_name: "Editar Empleado" %>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#empleado_rfc').prop('disabled', true);
+    });
+</script>

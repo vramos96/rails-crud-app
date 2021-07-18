@@ -14,3 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+//= require jquery.validate
+//= require jquery.validate.localization/messages_es
+//= require select2
+//= require select2_locale_es
